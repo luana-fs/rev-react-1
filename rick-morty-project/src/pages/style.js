@@ -4,7 +4,7 @@ export const HomePageContainer = styled.div`
    
    main {
     display: flex;
-    height: 100vh;
+    //height: 100vh;
     flex-wrap: wrap;
     justify-content:center;
     align-items: center;
