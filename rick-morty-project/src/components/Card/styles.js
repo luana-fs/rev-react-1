@@ -6,9 +6,10 @@ export const CardContainer = styled.div`
     margin: 5px;
     text-align: center;
     color: var(--dark);
+    max-width: 200px;
 
     img {
-        max-width: 200px;
+        max-width: 180px;
     }
 
     h2 {

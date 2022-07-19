@@ -47,7 +47,7 @@
         },
             {
           "id": 6,
-          "name": "Abadango Cluster Princess",
+          "name": "Cluster Princess",
           "species": "Alien",
           "origin": {
             "name": "Abadango"

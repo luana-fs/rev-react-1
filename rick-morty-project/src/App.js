@@ -10,10 +10,15 @@ function App() {
   const [name, setName] = useState("")
   const [species, setSpecies] = useState("")
   const [image, setImage] = useState("")
+  const [orderParam, setOrderParam] = useState(""); //price, title ou id
+  const [search, setSearch] = useState("")
+
 
   const handleNameInput = (event) => setName(event.target.value)
   const handleSpecieInput = (event) => setSpecies(event.target.value)
   const handleImageInput = (event) => setImage(event.target.value)
+  const handleOrderInput = (event) => setOrderParam(event.target.value)
+  const handleSearchInput = (event) => setSearch(event.target.value)
 
   const addCharacter = (event) => {
     event.preventDefault()
@@ -37,8 +42,6 @@ function App() {
       })
 
       setCharacters(filteredList)
-      console.log(characters)
-      console.log("clicou")
   }
 
   return (
@@ -46,8 +49,8 @@ function App() {
       <GlobalStyle/>
       <HomePage 
       characters={characters}
-      handlers={{handleNameInput, handleSpecieInput, handleImageInput}}
-      states={{name, species, image}}
+      handlers={{handleNameInput, handleSpecieInput, handleImageInput, handleOrderInput, handleSearchInput}}
+      states={{name, species, image, orderParam, search}}
       addCharacter={addCharacter}
       removeCharacter={removeCharacter}
       />
