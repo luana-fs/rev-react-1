@@ -1,5 +1,5 @@
-import Card from "../components/Card/Card";
-import { Header } from "../components/Header/Header";
+import Card from "../../components/Card/Card";
+import { Header } from "../../components/Header/Header";
 import { HomePageContainer } from "./styles";
 
 export function HomePage(props) {
@@ -23,18 +23,8 @@ export function HomePage(props) {
 
     const { addCharacter } = props
     const { removeCharacter } = props
+    const { changePage } = props
     
-
-   
-    // const renderList = characters.map((person) => {
-    //     return <Card 
-    //             id={person.id}
-    //             img={person.image}
-    //             name={person.name}
-    //             species={person.species}
-    //             removeCharacter={removeCharacter}
-    //             />
-    // })
 
     const renderList = characters
                             .filter(person => search === ""|| person.name.toLowerCase().includes(search))
@@ -42,6 +32,7 @@ export function HomePage(props) {
                             .sort((a, b) => orderParam === "" || orderParam === "desc" && a.name > b.name ? -1 : 1)
                             .map((person) => {
         return <Card 
+                changePage={changePage}
                 id={person.id}
                 img={person.image}
                 name={person.name}

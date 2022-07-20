@@ -1,7 +1,8 @@
 import { GlobalStyle } from './GlobalStyle';
-import { HomePage } from './pages/HomePage';
+import { HomePage } from './pages/HomePage/HomePage';
 import { results } from './data/data'
 import { useState } from 'react';
+import { DetailsPage } from './pages/DetailsPage/DetailsPage';
 //aqui faremos a renderização condicional de telas no futuro
 
 function App() {
@@ -12,6 +13,8 @@ function App() {
   const [image, setImage] = useState("")
   const [orderParam, setOrderParam] = useState(""); //price, title ou id
   const [search, setSearch] = useState("")
+  const [page, setPage] = useState("")
+  const [id, setId] = useState(0)
 
 
   const handleNameInput = (event) => setName(event.target.value)
@@ -19,6 +22,31 @@ function App() {
   const handleImageInput = (event) => setImage(event.target.value)
   const handleOrderInput = (event) => setOrderParam(event.target.value)
   const handleSearchInput = (event) => setSearch(event.target.value)
+
+  const changePage = (page, id) => {
+    setPage(page)
+    setId(id)
+  }
+
+  const renderPage = () => {
+      switch(page) {
+        case 'home':
+          return <HomePage 
+          characters={characters}
+          handlers={{handleNameInput, handleSpecieInput, handleImageInput, handleOrderInput, handleSearchInput}}
+          states={{name, species, image, orderParam, search}}
+          addCharacter={addCharacter}
+          removeCharacter={removeCharacter}
+          changePage={changePage}
+          />
+        case 'detailsPage':
+          return <DetailsPage 
+          characters={characters}
+          id={id}
+          changePage={changePage}
+          /> 
+      }
+  }
 
   const addCharacter = (event) => {
     event.preventDefault()
@@ -47,15 +75,7 @@ function App() {
   return (
     <div className="App">
       <GlobalStyle/>
-      <HomePage 
-      characters={characters}
-      handlers={{handleNameInput, handleSpecieInput, handleImageInput, handleOrderInput, handleSearchInput}}
-      states={{name, species, image, orderParam, search}}
-      addCharacter={addCharacter}
-      removeCharacter={removeCharacter}
-      />
-      {/* <DetailsPage/> */}
-   
+      {renderPage()}
     </div>
   );
 }
