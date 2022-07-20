@@ -10,6 +10,11 @@ export const Container = styled.div`
     margin: auto;
     //background-color: white;
 
+    img {
+        max-width: 300px;
+        margin: auto;
+    }
+
     button {
         //margin-top: 400px;
         justify-self: flex-end;

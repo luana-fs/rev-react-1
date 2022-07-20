@@ -13,7 +13,7 @@ function App() {
   const [image, setImage] = useState("")
   const [orderParam, setOrderParam] = useState(""); //price, title ou id
   const [search, setSearch] = useState("")
-  const [page, setPage] = useState("")
+  const [page, setPage] = useState("home")
   const [id, setId] = useState(0)
 
 

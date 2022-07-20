@@ -12,10 +12,10 @@ export function DetailsPage (props) {
         <>
         <Header/>
         <Container>
-            <h2>{character.name}</h2>
-            <img src={character.image} alt="" />
-            <p>Espécie: {character.species}</p>
-            <p>Planeta: {character.origin?.name}</p>
+            <h2>{character?.name}</h2>
+            <img src={character?.image} alt="" />
+            <p>Espécie: {character?.species}</p>
+            <p>Planeta: {character?.origin?.name}</p>
             <button onClick={() => changePage("home")}>Voltar</button>
         </Container>
         </>
