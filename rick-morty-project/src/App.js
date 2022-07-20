@@ -1,13 +1,13 @@
 import { GlobalStyle } from './GlobalStyle';
 import { HomePage } from './pages/HomePage/HomePage';
 import { results } from './data/data'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { DetailsPage } from './pages/DetailsPage/DetailsPage';
 //aqui faremos a renderização condicional de telas no futuro
 
 function App() {
 
-  const [characters, setCharacters] = useState(results)
+  const [characters, setCharacters] = useState([])
   const [name, setName] = useState("")
   const [species, setSpecies] = useState("")
   const [image, setImage] = useState("")
@@ -23,6 +23,10 @@ function App() {
   const handleOrderInput = (event) => setOrderParam(event.target.value)
   const handleSearchInput = (event) => setSearch(event.target.value)
 
+  useEffect(() => {
+    setCharacters(results)
+  }, []) 
+  
   const changePage = (page, id) => {
     setPage(page)
     setId(id)
